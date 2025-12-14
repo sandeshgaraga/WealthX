@@ -1,0 +1,35 @@
+name: money_quest
+description: A fully-local Flutter app for middle-school financial literacy education.
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # State management
+  provider: ^6.0.0
+
+  # Local storage
+  shared_preferences: ^2.2.0
+
+  # Internationalization
+  intl: ^0.18.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+
+  # Assets (optional future use)
+  # assets:
+  #   - assets/data/
