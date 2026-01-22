@@ -19,73 +19,88 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       body: CustomScrollView(
         slivers: [
-          // Custom app bar with coins and streak
+          // Custom app bar with streak (left) and coins (right)
           SliverAppBar(
             pinned: true,
             elevation: 4,
-            expandedHeight: 80,
+            toolbarHeight: 56,
+            expandedHeight: 56,
             flexibleSpace: FlexibleSpaceBar(
-              title: const Text('MoneyQuest'),
+              title: const Text(
+                'MoneyQuest',
+                style: TextStyle(fontWeight: FontWeight.w900, fontSize: 25),
+              ),
               centerTitle: true,
+            ),
+            leadingWidth: 72,
+            leading: Consumer<UserDataProvider>(
+              builder: (context, userDataProvider, child) {
+                return Align(
+                  alignment: Alignment.center,
+                  child: Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 4),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 12,
+                      vertical: 8,
+                    ),
+                    decoration: BoxDecoration(
+                      color: Colors.amber,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const Text('🔥', style: TextStyle(fontSize: 18)),
+                        const SizedBox(width: 4),
+                        Text(
+                          userDataProvider.streak.toString(),
+                          style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              },
             ),
             actions: [
               Consumer<UserDataProvider>(
                 builder: (context, userDataProvider, child) {
-                  return Row(
-                    children: [
-                      // Streak badge
-                      Container(
-                        margin: const EdgeInsets.symmetric(horizontal: 4),
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 12,
-                          vertical: 8,
-                        ),
-                        decoration: BoxDecoration(
-                          color: Colors.amber,
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: Row(
-                          children: [
-                            const Text('🔥', style: TextStyle(fontSize: 18)),
-                            const SizedBox(width: 4),
-                            Text(
-                              userDataProvider.streak.toString(),
-                              style: const TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 16,
+                  return Align(
+                    alignment: Alignment.center,
+                    child: Row(
+                      children: [
+                        // Coins badge
+                        Container(
+                          margin: const EdgeInsets.symmetric(horizontal: 8),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 12,
+                            vertical: 8,
+                          ),
+                          decoration: BoxDecoration(
+                            color: const Color.fromARGB(255, 11, 207, 60),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: Row(
+                            children: [
+                              const Text('💰', style: TextStyle(fontSize: 18)),
+                              const SizedBox(width: 4),
+                              Text(
+                                userDataProvider.coins.toString(),
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16,
+                                  color: Color.fromARGB(221, 255, 255, 255),
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
-                      ),
-                      // Coins badge
-                      Container(
-                        margin: const EdgeInsets.symmetric(horizontal: 8),
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 12,
-                          vertical: 8,
-                        ),
-                        decoration: BoxDecoration(
-                          color: Colors.yellowAccent,
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: Row(
-                          children: [
-                            const Text('💰', style: TextStyle(fontSize: 18)),
-                            const SizedBox(width: 4),
-                            Text(
-                              userDataProvider.coins.toString(),
-                              style: const TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 16,
-                                color: Colors.black87,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(width: 8),
-                    ],
+                        const SizedBox(width: 8),
+                      ],
+                    ),
                   );
                 },
               ),

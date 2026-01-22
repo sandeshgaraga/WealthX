@@ -43,7 +43,7 @@ class MoneyQuestAppBar extends StatelessWidget implements PreferredSizeWidget {
                     streak.toString(),
                     style: const TextStyle(
                       fontWeight: FontWeight.bold,
-                      color: Colors.black87,
+                      color: Color.fromARGB(221, 255, 255, 255),
                       fontSize: 16,
                     ),
                   ),
@@ -59,7 +59,7 @@ class MoneyQuestAppBar extends StatelessWidget implements PreferredSizeWidget {
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
               decoration: BoxDecoration(
-                color: Colors.yellowAccent,
+                color: const Color.fromARGB(255, 0, 255, 0),
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Row(
@@ -73,7 +73,7 @@ class MoneyQuestAppBar extends StatelessWidget implements PreferredSizeWidget {
                     coins.toString(),
                     style: const TextStyle(
                       fontWeight: FontWeight.bold,
-                      color: Colors.black87,
+                      color: Color.fromARGB(221, 255, 255, 255),
                       fontSize: 16,
                     ),
                   ),

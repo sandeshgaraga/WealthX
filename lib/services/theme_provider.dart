@@ -144,15 +144,50 @@ class AppThemes {
     ),
   );
 
+  // Gold theme - luxurious and premium
+  static ThemeData goldTheme = ThemeData(
+    useMaterial3: true,
+    colorScheme: ColorScheme.fromSeed(
+      seedColor: const Color(0xFFFFD700),
+      brightness: Brightness.light,
+    ),
+    scaffoldBackgroundColor: const Color(0xFFFFFBE6),
+    appBarTheme: const AppBarTheme(
+      backgroundColor: Color(0xFFFFC700),
+      foregroundColor: Colors.white,
+      elevation: 2,
+      centerTitle: true,
+    ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: const Color(0xFFFFD700),
+        foregroundColor: Colors.black87,
+        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      ),
+    ),
+    textTheme: const TextTheme(
+      headlineMedium: TextStyle(
+        color: Color(0xFFCC8800),
+        fontWeight: FontWeight.bold,
+        fontSize: 28,
+      ),
+      bodyMedium: TextStyle(
+        color: Colors.black87,
+        fontSize: 16,
+      ),
+    ),
+  );
+
   /// Get theme by name
   static ThemeData getTheme(String themeName) {
     switch (themeName.toLowerCase()) {
-      case 'neon':
-        return neonTheme;
       case 'dark':
         return darkTheme;
       case 'pastel':
         return pastelTheme;
+      case 'gold':
+        return goldTheme;
       default:
         return defaultTheme;
     }
@@ -160,7 +195,7 @@ class AppThemes {
 
   /// Get list of available themes
   static List<String> getAvailableThemes() {
-    return ['default', 'neon', 'dark', 'pastel'];
+    return ['default', 'dark', 'pastel', 'gold'];
   }
 }
 
