@@ -1,5 +1,6 @@
 /// App Themes
 /// Defines 4 kid-friendly themes: default, neon, dark, pastel
+library;
 
 import 'package:flutter/material.dart';
 

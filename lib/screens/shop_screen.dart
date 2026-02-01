@@ -1,5 +1,6 @@
 /// Shop Screen
 /// In-app shop for purchasing cosmetic items with coins
+library;
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -10,7 +11,7 @@ import '../services/theme_provider.dart';
 import '../widgets/common_widgets.dart';
 
 class ShopScreen extends StatefulWidget {
-  const ShopScreen({Key? key}) : super(key: key);
+  const ShopScreen({super.key});
 
   @override
   State<ShopScreen> createState() => _ShopScreenState();
@@ -179,7 +180,7 @@ class _ShopScreenState extends State<ShopScreen> {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text('✅ ${item.name} purchased!'),
-            backgroundColor: Colors.green,
+            backgroundColor: const Color.fromARGB(255, 11, 207, 60),
             duration: const Duration(seconds: 2),
           ),
         );

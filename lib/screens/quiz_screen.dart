@@ -1,5 +1,6 @@
 /// Quiz Screen
 /// Multiple-choice quiz with feedback and coin rewards
+library;
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -11,9 +12,9 @@ class QuizScreen extends StatefulWidget {
   final Topic topic;
 
   const QuizScreen({
-    Key? key,
+    super.key,
     required this.topic,
-  }) : super(key: key);
+  });
 
   @override
   State<QuizScreen> createState() => _QuizScreenState();
@@ -64,7 +65,7 @@ class _QuizScreenState extends State<QuizScreen> {
                         ),
                   ),
                   Text(
-                    '${_correctCount} Correct',
+                    '$_correctCount Correct',
                     style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                           color: Colors.green,
                           fontWeight: FontWeight.bold,

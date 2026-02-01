@@ -1,5 +1,6 @@
 /// Shop Data
 /// Contains all purchasable items in the MoneyQuest shop
+library;
 
 import '../models/models.dart';
 

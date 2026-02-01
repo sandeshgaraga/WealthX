@@ -1,5 +1,6 @@
 /// Local Storage Service
 /// Handles all persistent data storage using SharedPreferences
+library;
 
 import 'package:shared_preferences/shared_preferences.dart';
 

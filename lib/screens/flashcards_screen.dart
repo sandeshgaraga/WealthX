@@ -1,5 +1,6 @@
 /// Flash Cards Screen
 /// Simple flash card interface with swipe/navigation
+library;
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -11,9 +12,9 @@ class FlashCardsScreen extends StatefulWidget {
   final Topic topic;
 
   const FlashCardsScreen({
-    Key? key,
+    super.key,
     required this.topic,
-  }) : super(key: key);
+  });
 
   @override
   State<FlashCardsScreen> createState() => _FlashCardsScreenState();
@@ -71,7 +72,7 @@ class _FlashCardsScreenState extends State<FlashCardsScreen> {
                     Text(
                       '${((_currentIndex + 1) / flashCards.length * 100).toStringAsFixed(0)}%',
                       style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                            color: Colors.green,
+                            color: Colors.black,
                             fontWeight: FontWeight.bold,
                           ),
                     ),

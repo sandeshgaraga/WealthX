@@ -1,5 +1,6 @@
 /// User Data Provider
 /// Manages global user state (coins, streak, purchases, theme)
+library;
 
 import 'package:flutter/material.dart';
 import '../models/models.dart';

@@ -1,5 +1,6 @@
 /// Sample data for MoneyQuest app
 /// Contains all topics, flash cards, and quiz questions
+library;
 
 import '../models/models.dart';
 

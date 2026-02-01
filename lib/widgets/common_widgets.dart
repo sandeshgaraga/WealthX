@@ -1,5 +1,6 @@
 /// Reusable Widgets for MoneyQuest
 /// Common UI components used across the app
+library;
 
 import 'package:flutter/material.dart';
 
@@ -10,11 +11,11 @@ class MoneyQuestAppBar extends StatelessWidget implements PreferredSizeWidget {
   final int streak;
 
   const MoneyQuestAppBar({
-    Key? key,
+    super.key,
     required this.title,
     required this.coins,
     required this.streak,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +32,8 @@ class MoneyQuestAppBar extends StatelessWidget implements PreferredSizeWidget {
               decoration: BoxDecoration(
                 color: Colors.amber,
                 borderRadius: BorderRadius.circular(20),
+                border: Border.all(
+                    color: Colors.black, width: 2, style: BorderStyle.solid),
               ),
               child: Row(
                 children: [
@@ -59,8 +62,10 @@ class MoneyQuestAppBar extends StatelessWidget implements PreferredSizeWidget {
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
               decoration: BoxDecoration(
-                color: const Color.fromARGB(255, 0, 255, 0),
+                color: Color.fromARGB(255, 11, 207, 60),
                 borderRadius: BorderRadius.circular(20),
+                border: Border.all(
+                    color: Colors.black, width: 2, style: BorderStyle.solid),
               ),
               child: Row(
                 children: [
@@ -90,6 +95,82 @@ class MoneyQuestAppBar extends StatelessWidget implements PreferredSizeWidget {
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }
 
+/// Reusable streak badge widget
+class StreakBadge extends StatelessWidget {
+  final int streak;
+
+  const StreakBadge({
+    super.key,
+    required this.streak,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+      decoration: BoxDecoration(
+        color: Colors.amber,
+        borderRadius: BorderRadius.circular(20),
+        border:
+            Border.all(color: Colors.black, width: 2, style: BorderStyle.solid),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const Text('🔥', style: TextStyle(fontSize: 18)),
+          const SizedBox(width: 6),
+          Text(
+            streak.toString(),
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Color.fromARGB(221, 255, 255, 255),
+              fontSize: 16,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// Reusable coins badge widget
+class CoinsBadge extends StatelessWidget {
+  final int coins;
+
+  const CoinsBadge({
+    super.key,
+    required this.coins,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+      decoration: BoxDecoration(
+        color: const Color.fromARGB(255, 11, 207, 60),
+        borderRadius: BorderRadius.circular(20),
+        border:
+            Border.all(color: Colors.black, width: 2, style: BorderStyle.solid),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const Text('💰', style: TextStyle(fontSize: 18)),
+          const SizedBox(width: 6),
+          Text(
+            coins.toString(),
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Color.fromARGB(221, 255, 255, 255),
+              fontSize: 16,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 /// Rounded button widget
 class RoundedButton extends StatelessWidget {
   final String label;
@@ -100,14 +181,14 @@ class RoundedButton extends StatelessWidget {
   final IconData? icon;
 
   const RoundedButton({
-    Key? key,
+    super.key,
     required this.label,
     required this.onPressed,
     this.backgroundColor,
     this.textColor,
     this.fontSize = 18,
     this.icon,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -139,12 +220,12 @@ class MoneyQuestCard extends StatelessWidget {
   final VoidCallback? onTap;
 
   const MoneyQuestCard({
-    Key? key,
+    super.key,
     required this.child,
     this.padding = const EdgeInsets.all(16),
     this.backgroundColor,
     this.onTap,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -171,18 +252,22 @@ class FlashCardWidget extends StatelessWidget {
   final bool showDefinition;
 
   const FlashCardWidget({
-    Key? key,
+    super.key,
     required this.term,
     required this.definition,
     required this.showDefinition,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    // Get card background color based on theme
+    Color cardBackgroundColor = Colors.grey.shade200;
+
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: MoneyQuestCard(
         padding: const EdgeInsets.all(32),
-        backgroundColor: Colors.blue.withOpacity(0.1),
+        backgroundColor: cardBackgroundColor,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -242,13 +327,13 @@ class QuestionWidget extends StatelessWidget {
   final bool isAnswered;
 
   const QuestionWidget({
-    Key? key,
+    super.key,
     required this.question,
     required this.options,
     required this.selectedIndex,
     required this.onOptionSelected,
     this.isAnswered = false,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -302,11 +387,11 @@ class FeedbackWidget extends StatelessWidget {
   final VoidCallback onNext;
 
   const FeedbackWidget({
-    Key? key,
+    super.key,
     required this.isCorrect,
     required this.explanation,
     required this.onNext,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -363,7 +448,7 @@ class FeedbackWidget extends StatelessWidget {
 
 /// Loading widget
 class LoadingWidget extends StatelessWidget {
-  const LoadingWidget({Key? key}) : super(key: key);
+  const LoadingWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

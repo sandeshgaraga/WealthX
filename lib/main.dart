@@ -1,5 +1,6 @@
 /// Main App Entry Point
 /// Configures the Flutter app with providers and theme management
+library;
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -25,10 +26,9 @@ void main() async {
 
   runApp(
     MoneyQuestApp(
-      storageService: storageService,
-      userDataProvider: userDataProvider,
-      initialTheme: savedTheme,
-    ),
+        storageService: storageService,
+        userDataProvider: userDataProvider,
+        initialTheme: savedTheme),
   );
 }
 
@@ -38,11 +38,11 @@ class MoneyQuestApp extends StatelessWidget {
   final String initialTheme;
 
   const MoneyQuestApp({
-    Key? key,
+    super.key,
     required this.storageService,
     required this.userDataProvider,
     required this.initialTheme,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

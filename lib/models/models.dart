@@ -1,5 +1,6 @@
 /// Models for MoneyQuest app
 /// Contains data classes for Questions, FlashCards, Topics, Users, and Shop Items
+library;
 
 /// Represents a single flash card with a term and definition
 class FlashCard {
