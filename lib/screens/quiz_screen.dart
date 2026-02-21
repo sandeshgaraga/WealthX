@@ -90,6 +90,7 @@ class _QuizScreenState extends State<QuizScreen> {
                   question: question.question,
                   options: question.options,
                   selectedIndex: _selectedAnswerIndex,
+                  correctIndex: question.correctAnswerIndex,
                   onOptionSelected: (index) {
                     if (!_isAnswered) {
                       setState(() {

@@ -325,6 +325,7 @@ class QuestionWidget extends StatelessWidget {
   final String question;
   final List<String> options;
   final int? selectedIndex;
+  final int? correctIndex;
   final Function(int) onOptionSelected;
   final bool isAnswered;
 
@@ -335,6 +336,7 @@ class QuestionWidget extends StatelessWidget {
     required this.selectedIndex,
     required this.onOptionSelected,
     this.isAnswered = false,
+    this.correctIndex,
   });
 
   @override
@@ -351,31 +353,47 @@ class QuestionWidget extends StatelessWidget {
         const SizedBox(height: 24),
         ...List.generate(
           options.length,
-          (index) => Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8.0),
-            child: ElevatedButton(
-              onPressed: isAnswered ? null : () => onOptionSelected(index),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: selectedIndex == index
-                    ? Colors.green.withOpacity(0.7)
-                    : Colors.grey.shade300,
-                foregroundColor:
-                    selectedIndex == index ? Colors.white : Colors.black87,
-                minimumSize: const Size(double.infinity, 56),
-                disabledBackgroundColor: selectedIndex == index
-                    ? Colors.green.withOpacity(0.7)
-                    : Colors.grey.shade300,
-              ),
-              child: Text(
-                options[index],
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
+          (index) {
+            bool isSelected = selectedIndex == index;
+            bool isCorrect = correctIndex == index;
+
+            Color buttonColor = Colors.grey.shade300;
+            Color textColor = Colors.black87;
+
+            if (isSelected && isAnswered) {
+              if (isCorrect) {
+                buttonColor = Colors.green.withOpacity(0.7);
+                textColor = Colors.white;
+              } else {
+                buttonColor = Colors.red.withOpacity(0.7);
+                textColor = Colors.white;
+              }
+            } else if (isSelected && !isAnswered) {
+              buttonColor = Colors.green.withOpacity(0.7);
+              textColor = Colors.white;
+            }
+
+            return Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8.0),
+              child: ElevatedButton(
+                onPressed: isAnswered ? null : () => onOptionSelected(index),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: buttonColor,
+                  foregroundColor: textColor,
+                  minimumSize: const Size(double.infinity, 56),
+                  disabledBackgroundColor: buttonColor,
+                ),
+                child: Text(
+                  options[index],
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
               ),
-            ),
-          ),
+            );
+          },
         ),
       ],
     );
@@ -439,7 +457,7 @@ class FeedbackWidget extends StatelessWidget {
             const SizedBox(height: 24),
             ElevatedButton(
               onPressed: onNext,
-              child: const Text('Next Question'),
+              child: const Text('Ok'),
             ),
           ],
         ),

@@ -59,16 +59,9 @@ class HomeScreen extends StatelessWidget {
                       builder: (context, userDataProvider, child) {
                         return Align(
                           alignment: Alignment.center,
-                          child: Row(
-                            children: [
-                              Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(horizontal: 8),
-                                child:
-                                    CoinsBadge(coins: userDataProvider.coins),
-                              ),
-                              const SizedBox(width: 8),
-                            ],
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 4),
+                            child: CoinsBadge(coins: userDataProvider.coins),
                           ),
                         );
                       },
