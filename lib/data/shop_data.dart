@@ -35,28 +35,5 @@ final List<ShopItem> shopItems = [
     type: 'theme',
   ),
 
-  /// Icons / Cosmetics
-  ShopItem(
-    id: 'icon_diamond',
-    name: 'Diamond Badge',
-    description: 'Sparkly diamond achievement badge.',
-    cost: 200,
-    type: 'icon',
-  ),
-
   /// Color Packs
-  ShopItem(
-    id: 'colorpack_sunset',
-    name: 'Sunset Color Pack',
-    description: 'Warm orange and pink colors.',
-    cost: 300,
-    type: 'colorpack',
-  ),
-  ShopItem(
-    id: 'colorpack_ocean',
-    name: 'Ocean Color Pack',
-    description: 'Cool blue and teal colors.',
-    cost: 350,
-    type: 'colorpack',
-  ),
 ];

@@ -99,7 +99,7 @@ class AppThemes {
     ),
     textTheme: const TextTheme(
       headlineMedium: TextStyle(
-        color: Colors.tealAccent,
+        color: Color.fromARGB(255, 175, 253, 235),
         fontWeight: FontWeight.bold,
         fontSize: 28,
       ),

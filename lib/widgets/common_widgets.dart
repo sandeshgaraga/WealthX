@@ -261,7 +261,7 @@ class FlashCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Get card background color based on theme
-    Color cardBackgroundColor = Colors.grey.shade200;
+    Color cardBackgroundColor = Colors.grey.shade800;
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -277,7 +277,7 @@ class FlashCardWidget extends StatelessWidget {
                   Text(
                     'Definition',
                     style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                          color: Colors.grey,
+                          color: Colors.grey.shade400,
                           fontSize: 14,
                         ),
                   ),
@@ -288,6 +288,7 @@ class FlashCardWidget extends StatelessWidget {
                     style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                           fontSize: 18,
                           fontWeight: FontWeight.w500,
+                          color: Colors.white,
                         ),
                   ),
                 ],
@@ -298,6 +299,7 @@ class FlashCardWidget extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                       fontSize: 32,
+                      color: Colors.white,
                     ),
               ),
             const SizedBox(height: 32),
@@ -306,7 +308,7 @@ class FlashCardWidget extends StatelessWidget {
                   ? 'Tap to reveal term →'
                   : 'Tap to reveal definition →',
               style: TextStyle(
-                color: Colors.grey.shade600,
+                color: Colors.grey.shade400,
                 fontSize: 12,
                 fontStyle: FontStyle.italic,
               ),

@@ -26,51 +26,55 @@ class HomeScreen extends StatelessWidget {
             elevation: 4,
             toolbarHeight: 56,
             expandedHeight: 56,
-            flexibleSpace: Center(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  // Streak container
-                  Consumer<UserDataProvider>(
-                    builder: (context, userDataProvider, child) {
-                      return Align(
-                        alignment: Alignment.center,
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 4),
-                          child: StreakBadge(streak: userDataProvider.streak),
-                        ),
-                      );
-                    },
-                  ),
-
-                  // Title
-                  const Text(
-                    'MoneyQuest',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w900,
-                      fontSize: 25,
+            flexibleSpace: SafeArea(
+              bottom: false,
+              child: Center(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    // Streak container
+                    Consumer<UserDataProvider>(
+                      builder: (context, userDataProvider, child) {
+                        return Align(
+                          alignment: Alignment.center,
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 4),
+                            child: StreakBadge(streak: userDataProvider.streak),
+                          ),
+                        );
+                      },
                     ),
-                  ),
 
-                  // Money container
-                  Consumer<UserDataProvider>(
-                    builder: (context, userDataProvider, child) {
-                      return Align(
-                        alignment: Alignment.center,
-                        child: Row(
-                          children: [
-                            Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 8),
-                              child: CoinsBadge(coins: userDataProvider.coins),
-                            ),
-                            const SizedBox(width: 8),
-                          ],
-                        ),
-                      );
-                    },
-                  ),
-                ],
+                    // Title
+                    const Text(
+                      'MoneyQuest',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w900,
+                        fontSize: 25,
+                      ),
+                    ),
+
+                    // Money container
+                    Consumer<UserDataProvider>(
+                      builder: (context, userDataProvider, child) {
+                        return Align(
+                          alignment: Alignment.center,
+                          child: Row(
+                            children: [
+                              Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 8),
+                                child:
+                                    CoinsBadge(coins: userDataProvider.coins),
+                              ),
+                              const SizedBox(width: 8),
+                            ],
+                          ),
+                        );
+                      },
+                    ),
+                  ],
+                ),
               ),
             ),
             leadingWidth: 0,
@@ -105,7 +109,7 @@ class HomeScreen extends StatelessWidget {
                                 fontSize: 20,
                               ),
                     ),
-                    const SizedBox(height: 16),
+                    const SizedBox(height: 2),
 
                     // Topic cards grid
                     GridView.builder(
